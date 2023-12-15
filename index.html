@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Dastyar</title>
+    <!-- icon -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap"
+      rel="stylesheet"
+    />
+    <!--  style -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+
+  <body>
+    <section class="container">
+      <header>
+        <i class="bx bxs-cog" style="color:#ffffff"></i>
+        <i class="bx bxs-user" style="color:#ffffff"></i> <i></i>
+      </header>
+      <main id="main-app">
+        <div class="backgrandWhite weatherTime">
+          <section class="weather-time">
+            <div class="weather">
+              <section>
+                <h3 class="weather-current" id="current"></h3>
+                <h4
+                  class="weather-customDescription"
+                  id="customDescription"
+                ></h4>
+                <h6 class="weather-maxMin" id="weather-maxMin"></h6>
+                <button class="weather-btn">پیش بینی</button>
+              </section>
+            </div>
+            <div>
+              <section class="time">
+                <h3 class="hour" id="hour"></h3>
+                <h3 class="Date" id="Date"></h3>
+                <div class="otherDate">
+                  <h2 class="" id="Datemiladi"></h2>
+                  <h2 class="Date-islamicHijri" id="Date-islamicHijri"></h2>
+                </div>
+                <div class="btn-weather">
+                  <button class="weather-btn">اوقات شرعی</button>
+                  <button class="weather-btn">تایمر</button>
+                </div>
+              </section>
+            </div>
+          </section>
+        </div>
+        <div class="search">
+          <section class="search-google">
+            <div>
+              <span class="search-logo">
+                <i class="bx bx-search" style="color:#ffffff"></i>
+              </span>
+              <input type="text" placeholder="جستوجو در گوگل" />
+              <i class="bx bxl-google"></i>
+            </div>
+          </section>
+          <section class="barname-karbordi">
+            <ul>
+              <li>
+                <a href="https://www.damdasti.com/" target="_blank"
+                  ><img src="assets/Images/dame dasti.JPG" alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="https://www.shab.travel/" target="_blank"
+                  ><img src="assets/Images/shab.JPG" alt=""
+                /></a>
+              </li>
+              <li><i>+</i></li>
+              <li><i>+</i></li>
+              <li><i>+</i></li>
+              <li><i>+</i></li>
+              <li><i>+</i></li>
+              <li><i>+</i></li>
+              <li><i>+</i></li>
+            </ul>
+          </section>
+        </div>
+        <div class="backgrandWhite borderTodo">
+          <section class="toDo">
+            <h2>دست نویس</h2>
+            <div class="list-task">
+              <ul id="todo-task">
+                <li class="task">
+                  <span class="edit-trash">
+                    <i class="bx bxs-trash" style="color:#6f6969"></i>
+                    <i class="bx bx-edit-alt" style="color:#6f6969"></i>
+                  </span>
+                  <span>
+                    <span class="task-txt">
+                      کار شماره یک
+                    </span>
+                    <span>
+                      <input type="checkbox" class="task-checkBox" />
+                    </span>
+                  </span>
+                </li>
+                <li class="task" id="">
+                  <span class="edit-trash">
+                    <i class="bx bxs-trash" style="color:#6f6969"></i>
+                    <i class="bx bx-edit-alt" style="color:#6f6969"></i>
+                  </span>
+                  <span>
+                    <span class="task-txt">
+                      کار شماره یک
+                    </span>
+                    <span>
+                      <input type="checkbox" class="task-checkBox" />
+                    </span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="write-task">
+              <form action="" id="form-task">
+                <span class="addBtn"><button>+</button></span>
+                <input
+                  type="text"
+                  id="input"
+                  placeholder="نوشتن تسک جدید"
+                  required
+                  pattern="\S+.*"
+                />
+              </form>
+            </div>
+          </section>
+        </div>
+      </main>
+    </section>
+  </body>
+      <!--  Scripts -->
+      <link rel="Scripts" href="./assets/Scripts.js" />
+
+</html>
