@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 :root {
+  --backgColorWhite: white;
+  --backgColorBody: #c4def7;
+  --fontFamily: "Vazirmatn", sans-serif;
+  --borderRadius24: 24px;
+  --borderRadius6: 6px;
 }
 
 .container {
@@ -20,10 +25,9 @@ ul,
 li {
   list-style: none;
 }
-
 body {
-  font-family: "Vazirmatn", sans-serif;
-  background: #c4def7;
+  font-family: var(--fontFamily);
+  background: var(--backgColorBody);
 }
 ul {
   padding-inline-start: 0px;
@@ -33,29 +37,41 @@ header {
   align-items: center;
   height: 5vh;
   margin-left: 5px;
-  font-size: 25px;
+  font-size: 1rem;
+}
+header i {
+  color: #ffffff;
 }
 main {
   height: 95vh;
+  width: 100%;
 
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas:
+    "W G G T"
+    "W B B T"
+    "0 0 0 T"
+    "0 0 0 T";
+
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-column-gap: 16px;
 }
-.backgrandWhite {
-  background: white;
+.backgroundWhite {
+  background: var(--backgColorWhite);
   border-radius: 15px;
 }
-
 /* -------------------------------------  جستوجو گوگل */
 .search-google {
-  background-color: white;
-  border-radius: 24px;
+  grid-area: G;
+  background-color: var(--backgColorWhite);
+  border-radius: var(--borderRadius24);
   padding-bottom: 20px;
   padding-top: 20px;
+  max-height: 100px;
   text-align: center;
 }
-.search {
+.barname {
+  grid-area: B;
   margin-top: 4px;
 }
 .search-google div {
@@ -73,12 +89,12 @@ main {
   color: #094d9a;
 }
 .search-google div input {
-  border-radius: 24px;
+  border-radius: var(--borderRadius24);
   text-align: right;
   border: none;
   background-color: transparent;
   width: 80%;
-  font-family: "Vazirmatn", sans-serif;
+  font-family: var(--fontFamily);
 }
 .search-logo {
   display: flex;
@@ -87,7 +103,7 @@ main {
 .search-logo i {
   padding: 2px 15px;
   background-color: darkslateblue;
-  border-radius: 24px;
+  border-radius: var(--borderRadius24);
 }
 .barname-karbordi {
   margin-top: 8px;
@@ -95,13 +111,14 @@ main {
 .barname-karbordi ul {
   display: grid;
   row-gap: 8px;
+  coluumns-gap: 8px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   direction: rtl;
   justify-items: center;
 }
 .barname-karbordi ul li {
-  background-color: white;
-  border-radius: 5px;
+  background-color: var(--backgColorWhite);
+  border-radius: var(--borderRadius6);
   height: 80px;
   width: 80px;
   display: flex;
@@ -109,26 +126,23 @@ main {
   align-items: center;
   cursor: pointer;
 }
-
 i:hover {
   cursor: pointer;
 }
-
 .btn-weather {
-  border-radius: 5px;
+  border-radius: var(--borderRadius6);
 }
-
 /*      -------------------------------------  TO do list  */
 .addBtn button {
-  font-family: "Vazirmatn", sans-serif;
+  font-family: var(--fontFamily);
   padding: 5px;
   padding-right: 0px;
   width: 18%;
   color: gray;
-  background-color: white;
+  background-color: var(--backgColorWhite);
   float: left;
   text-align: left;
-  font-size: 16px;
+  font-size: 0.8rem;
   cursor: pointer;
   border-right: none;
   border-radius: 5px;
@@ -139,17 +153,17 @@ i:hover {
   border-color: gray;
 }
 .write-task form input {
-  font-family: "Vazirmatn", sans-serif;
+  font-family: var(--fontFamily);
 
   margin: 0;
   width: 80%;
   padding: 5px;
   padding-left: 0px;
   float: left;
-  font-size: 16px;
+  font-size: 0.8rem;
   text-align: right;
   margin: 10px 0px 10px 0px;
-  border-radius: 5px;
+  border-radius: var(--borderRadius6);
   border-color: gray;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
@@ -157,7 +171,8 @@ i:hover {
   border-width: 2px;
 }
 .borderTodo {
-  border-radius: 24px;
+  grid-area: T;
+  border-radius: var(--borderRadius24);
   margin: 4px;
 }
 .toDo {
@@ -167,12 +182,20 @@ i:hover {
   margin: 4px;
   height: 100%;
 }
+.toDo h2 {
+  border-bottom: solid 1px gray;
+  text-align: right;
+  padding-right: 5px;
+  font: 1.5rem bold var(--fontFamily);
+}
 
 .task-txt {
   font-size: 1rem;
-  width: 80%;
+  margin-right: 3px;
+  width: 70%;
   color: #000;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 .task {
   border: solid 1px gray;
@@ -181,35 +204,25 @@ i:hover {
   border-radius: 4px;
   margin: 5px;
   text-align: right;
-}
-.task span {
-  margin-right: 3px;
-}
-.edit-trash {
-  display: none;
-}
-.task:hover {
+  direction: rtl;
+  align-items: center;
   display: flex;
   justify-content: space-between;
 }
-.task:hover .edit-trash {
-  display: inline;
+.task span:first-child {
+  margin-right: 3px;
+  display: flex;
+  align-items: center;
 }
-.task:hover .task-txt {
-  justify-content: flex-start;
+.edit-trash {
+  visibility: hidden;
+}
+.task:hover .edit-trash {
+  visibility: visible;
 }
 .task-checkBox {
-  width: 1.1em;
-  height: 1.1em;
-  border-color: hotpink;
-}
-
-.toDo h2 {
-  /* border:  */
-  border-bottom: solid 1px gray;
-  text-align: right;
-  padding-right: 5px;
-  font-size: 1.5rem bold;
+  width: 1.1rem;
+  height: 1.1rem;
 }
 
 .list-task {
@@ -227,8 +240,12 @@ i:hover {
   margin-bottom: 8px;
   justify-content: center;
 }
+.edit-trash i {
+  color: #6f6969;
+}
 /*  ----------------------------------   اب و هوا */
 .weatherTime {
+  grid-area: W;
   margin: 4px;
 }
 .weather {
@@ -237,7 +254,6 @@ i:hover {
 .weather-time {
   display: grid;
   margin: 2px;
-
   grid-template-columns: 1fr 1fr;
   border-bottom: #6f6969 solid 1px;
 }
@@ -246,7 +262,7 @@ i:hover {
 }
 .weather-current {
   color: gray;
-  font-size: 30px;
+  font-size: 1.5rem;
   border-radius: 6px;
   margin: 2px;
 }
@@ -257,10 +273,10 @@ i:hover {
 }
 .weather-btn {
   border-radius: 6px;
-  background-color: white;
+  background-color: var(--backgColorWhite);
   border: solid 1px gray;
   padding: 4px;
-  font-family: "Vazirmatn", sans-serif;
+  font-family: var(--fontFamily);
   margin: 5px;
 }
 .time {
@@ -268,12 +284,12 @@ i:hover {
 }
 .hour {
   color: #094d9a;
-  font-size: 30px;
+  font-size: 1.5rem;
 }
 .otherDate {
   display: flex;
   flex-direction: row;
-  font-size: 5px;
+  font-size: 0.3rem;
   margin-top: 5px;
   margin-bottom: 9px;
 }
@@ -282,8 +298,66 @@ i:hover {
 }
 .Date-islamicHijri {
   direction: rtl;
+  margin: 2px auto;
+}
+#DateMiladi {
   margin: 2px;
 }
-#Datemiladi {
-  margin: 2px;
+/* ---------------- media*/
+@media (min-width: 870px) and (max-width: 950px) {
+  .barname-karbordi ul {
+    display: grid;
+    row-gap: 8px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    direction: rtl;
+    justify-items: center;
+  }
+  .barname-karbordi ul li {
+    background-color: var(--backgColorWhite);
+    border-radius: var(--borderRadius6);
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  main {
+    display: grid;
+    grid-template-areas:
+      "W G G T"
+      "W B B T"
+      "0 0 0 T";
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .weather-time {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 200px) and (max-width: 871px) {
+  main {
+    height: 95vh;
+    width: 100%;
+
+    display: grid;
+    grid-template-areas:
+      "G"
+      "W"
+      "B"
+      "T";
+
+    grid-template-columns: 1fr;
+    grid-column-gap: 16px;
+  }
+  .barname-karbordi ul {
+    display: grid;
+    row-gap: 8px;
+    column-gap: 8px;
+    grid-template-columns: 1fr 1fr;
+    direction: rtl;
+    justify-items: center;
+  }
+  .weather-time {
+    grid-template-columns: 1fr 1fr;
+  }
 }

@@ -24,11 +24,21 @@
   <body>
     <section class="container">
       <header>
-        <i class="bx bxs-cog" style="color:#ffffff"></i>
-        <i class="bx bxs-user" style="color:#ffffff"></i> <i></i>
+        <i class="bx bxs-cog"></i>
+        <i class="bx bxs-user"></i> <i></i>
       </header>
+
       <main id="main-app">
-        <div class="backgrandWhite weatherTime">
+        <section class="search-google">
+          <div>
+            <span class="search-logo">
+              <i class="bx bx-search" style="color:#ffffff"></i>
+            </span>
+            <input type="text" placeholder="جستوجو در گوگل" />
+            <i class="bx bxl-google"></i>
+          </div>
+        </section>
+        <div class="backgroundWhite weatherTime">
           <section class="weather-time">
             <div class="weather">
               <section>
@@ -46,7 +56,7 @@
                 <h3 class="hour" id="hour"></h3>
                 <h3 class="Date" id="Date"></h3>
                 <div class="otherDate">
-                  <h2 class="" id="Datemiladi"></h2>
+                  <h2 class="" id="DateMiladi"></h2>
                   <h2 class="Date-islamicHijri" id="Date-islamicHijri"></h2>
                 </div>
                 <div class="btn-weather">
@@ -57,16 +67,7 @@
             </div>
           </section>
         </div>
-        <div class="search">
-          <section class="search-google">
-            <div>
-              <span class="search-logo">
-                <i class="bx bx-search" style="color:#ffffff"></i>
-              </span>
-              <input type="text" placeholder="جستوجو در گوگل" />
-              <i class="bx bxl-google"></i>
-            </div>
-          </section>
+        <div class="barname">
           <section class="barname-karbordi">
             <ul>
               <li>
@@ -89,40 +90,11 @@
             </ul>
           </section>
         </div>
-        <div class="backgrandWhite borderTodo">
+        <div class="backgroundWhite borderTodo">
           <section class="toDo">
             <h2>دست نویس</h2>
             <div class="list-task">
-              <ul id="todo-task">
-                <li class="task">
-                  <span class="edit-trash">
-                    <i class="bx bxs-trash" style="color:#6f6969"></i>
-                    <i class="bx bx-edit-alt" style="color:#6f6969"></i>
-                  </span>
-                  <span>
-                    <span class="task-txt">
-                      کار شماره یک
-                    </span>
-                    <span>
-                      <input type="checkbox" class="task-checkBox" />
-                    </span>
-                  </span>
-                </li>
-                <li class="task" id="">
-                  <span class="edit-trash">
-                    <i class="bx bxs-trash" style="color:#6f6969"></i>
-                    <i class="bx bx-edit-alt" style="color:#6f6969"></i>
-                  </span>
-                  <span>
-                    <span class="task-txt">
-                      کار شماره یک
-                    </span>
-                    <span>
-                      <input type="checkbox" class="task-checkBox" />
-                    </span>
-                  </span>
-                </li>
-              </ul>
+              <ul id="todo-task"></ul>
             </div>
             <div class="write-task">
               <form action="" id="form-task">
@@ -141,7 +113,6 @@
       </main>
     </section>
   </body>
-      <!--  Scripts -->
-      <link rel="Scripts" href="./assets/Scripts.js" />
-
+  <!--  Scripts -->
+  <script src="./assets/Scripts.js"></script>
 </html>
